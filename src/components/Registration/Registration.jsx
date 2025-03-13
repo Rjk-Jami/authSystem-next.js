@@ -2,6 +2,7 @@ import React from "react";
 import { useFormik } from "formik";
 import { useRouter } from "next/navigation";
 import * as Yup from "yup";
+import Link from "next/link";
 
 const RegSchema = Yup.object().shape({
   email: Yup.string()
@@ -93,6 +94,20 @@ const Registration = () => {
           >
             {isSubmitting ? "Signing in..." : "Sign in"}
           </button>
+        </div>
+        <div className=" flex justify-end mt-4">
+          
+          
+          {/* lost section */}
+          <div className="">
+            <Link
+              
+              className="text-sm font-thin text-blue-600 hover:text-blue-500"
+              href={"/forget-password"}
+            >
+              Lost your password?
+            </Link>
+          </div>
         </div>
       </form>
     </div>

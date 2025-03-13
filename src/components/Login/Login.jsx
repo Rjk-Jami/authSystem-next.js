@@ -134,7 +134,7 @@ const Login = () => {
           {/* lost section */}
           <div className="">
             <Link
-              onClick={() => handleCloseSidebar("my-drawer-4")}
+              
               className="text-sm font-thin text-blue-600 hover:text-blue-500"
               href={"/forget-password"}
             >
