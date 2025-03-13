@@ -7,7 +7,7 @@ const Authentication = () => {
   const [loginActive, setLoginActive] = useState(true);
   return (
     <div className="container">
-      <div className=" grid grid-cols-2 justify-center items-center gap-2">
+      <div className="p-8 grid grid-cols-2 justify-center items-center gap-2">
         <button
           onClick={() => setLoginActive(!loginActive)}
           className={`btn btn-outline btn-primary ${
