@@ -31,5 +31,5 @@ UserSchema.pre("save", function (next) {
   this.updatedAt = Date.now();
   next();
 });
-const User = mongoose.models.User || mongoose.model("users", UserSchema);
+const User = mongoose.models.User || mongoose.model("User", UserSchema);
 export default User;
