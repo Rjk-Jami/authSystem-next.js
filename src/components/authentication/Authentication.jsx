@@ -7,11 +7,11 @@ const Authentication = () => {
   const [loginActive, setLoginActive] = useState(true);
   return (
     <div className="container">
-      <div className="p-8 grid grid-cols-2 justify-center items-center gap-2">
+      <div className="px-8 grid grid-cols-2 justify-center items-center gap-2">
         <button
           onClick={() => setLoginActive(!loginActive)}
           className={`btn btn-outline btn-primary ${
-            loginActive ? "btn-active" : ""
+            loginActive ? "btn-active drop-shadow-2xl" : ""
           } `}
         >
           Login
@@ -20,13 +20,14 @@ const Authentication = () => {
         <button
           onClick={() => setLoginActive(!loginActive)}
           className={`btn btn-outline btn-primary ${
-            loginActive ? "" : "btn-active"
+            loginActive ? "" : "btn-active drop-shadow-2xl"
           }`}
         >
           Registration
         </button>
       </div>
-
+    
+   
       <div className="">
       {loginActive ? <Login /> : <Registration />}
       </div>
