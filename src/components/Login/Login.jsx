@@ -1,4 +1,5 @@
 "use client";
+import { loginUser } from "@/app/action/auth";
 import { useFormik } from "formik";
 import { Eye, EyeOff } from "lucide-react";
 import Link from "next/link";
@@ -30,8 +31,13 @@ const Login = () => {
       rememberMe: false,
     },
     validationSchema: LoginSchema,
-    onSubmit: async (values) => {
-      console.log(values);
+    onSubmit: async (values, { setSubmitting }) => {
+      try {
+        console.log(values, "loginUser");
+
+        const result = await loginUser(values);
+        console.log(result, "loginPage result");
+      } catch (error) {}
     },
   });
   const { values, touched, errors, handleChange, handleSubmit, isSubmitting } =
@@ -134,7 +140,6 @@ const Login = () => {
           {/* lost section */}
           <div className="">
             <Link
-              
               className="text-sm font-thin text-blue-600 hover:text-blue-500"
               href={"/forget-password"}
             >

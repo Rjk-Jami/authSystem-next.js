@@ -3,6 +3,7 @@ import { useFormik } from "formik";
 import { useRouter } from "next/navigation";
 import * as Yup from "yup";
 import Link from "next/link";
+import { registerUser } from "@/app/action/auth";
 
 const RegSchema = Yup.object().shape({
   email: Yup.string()
@@ -11,17 +12,28 @@ const RegSchema = Yup.object().shape({
   password: Yup.string()
     .required("Password is required")
     .min(6, "Password must be at least 6 characters"),
+  rememberMe: Yup.boolean(),
 });
 const Registration = () => {
   const router = useRouter();
+
+  //   handle form submission
   const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
+      rememberMe: false,
     },
     validationSchema: RegSchema,
-    onSubmit: async (values) => {
-      console.log(values);
+    onSubmit: async (values, { setSubmitting }) => {
+      try {
+        console.log(values, "registerUser");
+
+        const result = await registerUser(values);
+        console.log(result, "registerPage result");
+      } catch (error) {
+        console.log(error)
+      }
     },
   });
   const { values, touched, errors, handleChange, handleSubmit, isSubmitting } =
@@ -95,13 +107,21 @@ const Registration = () => {
             {isSubmitting ? "Signing in..." : "Sign in"}
           </button>
         </div>
-        <div className=" flex justify-end mt-4">
-          
-          
+        <div className=" flex justify-between mt-4">
+          {/* remember me */}
+          <label className="inline-flex items-center">
+            <input
+              type="checkbox"
+              name="rememberMe"
+              onChange={handleChange}
+              checked={values.rememberMe}
+              className=" h-4 w-4 "
+            />
+            <span className="ml-2 text-sm font-thin  ">Remember me</span>
+          </label>
           {/* lost section */}
           <div className="">
             <Link
-              
               className="text-sm font-thin text-blue-600 hover:text-blue-500"
               href={"/forget-password"}
             >

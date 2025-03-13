@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.0.13",
+    "bcryptjs": "^3.0.2",
     "formik": "^2.4.6",
     "lucide-react": "^0.479.0",
+    "mongoose": "^8.12.1",
     "next": "15.2.2",
     "postcss": "^8.5.3",
     "react": "^19.0.0",
