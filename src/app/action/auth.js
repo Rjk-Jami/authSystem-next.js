@@ -32,7 +32,7 @@ export const registerUser = async (data) => {
       return { success: false, error: "User already exists" };
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedPassword = await bcrypt.hash(password, 15);
     const user = new User({
       email,
       password: hashedPassword,
