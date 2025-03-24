@@ -1,9 +1,10 @@
 "use server";
-
+import { cookies } from "next/headers"
 import { connectToDatabase } from "@/lib/mongodb";
+import Session from "@/models/Session";
 import User from "@/models/User";
 import bcrypt from "bcryptjs";
-import jwt from "jsonwebtoken"
+import jwt from "jsonwebtoken";
 
 const JWT_SECRET = process.env.JWT_SECRET || "jamiKhan01786076080";
 
@@ -14,10 +15,10 @@ const generateSessionToken = (user, rememberMe) => {
       email: user.email,
     },
     JWT_SECRET,
-    { expiresIn: rememberMe ? "30d" : "24h" } 
+    { expiresIn: rememberMe ? "30d" : "24h" }
   );
   return sessionToken;
-}
+};
 
 export const registerUser = async (data) => {
   try {
@@ -40,7 +41,18 @@ export const registerUser = async (data) => {
 
     const sessionToken = generateSessionToken(user, rememberMe);
 
-    return { success: true, message: "User registered successfully", };
+    // Create a new session record
+    const session = new Session({
+      userId: user._id,
+      token: sessionToken,
+      userAgent: headers().get("user-agent") || "unknown",
+      ip: headers().get("x-forwarded-for") || "unknown",
+      lastActive: new Date(),
+    });
+
+    await session.save();
+
+    return { success: true, message: "User registered successfully" };
   } catch (error) {
     console.log(error);
   }
@@ -57,10 +69,21 @@ export const loginUser = async (data) => {
     }
 
     const sessionToken = generateSessionToken(user, rememberMe);
-    console.log(sessionToken, "sessionToken");
+    // Create a new session record
+    const session = new Session({
+      userId: user._id,
+      token: sessionToken,
+      userAgent: headers().get("user-agent") || "unknown",
+      ip: headers().get("x-forwarded-for") || "unknown",
+      lastActive: new Date(),
+    });
+    console.log(session, "session");
+    await session.save();
+    // console.log(sessionToken, "sessionToken");
+    console.log(session, "session");
 
     const userId = user._id.toString();
-    return { success: true, userId, };
+    return { success: true, userId };
   } catch (error) {}
 };
 
