@@ -29,7 +29,7 @@ const Registration = () => {
       try {
         console.log(values, "registerUser");
 
-        const result = await registerUser(values);
+       // const result = await registerUser(values);
         console.log(result, "registerPage result");
       } catch (error) {
         console.log(error)
