@@ -47,6 +47,7 @@ const Registration = () => {
             Email address <span className="text-red-500">*</span>
           </label>
           <input
+            placeholder="test@gmail.com"
             id="email"
             name="email"
             type="email"
