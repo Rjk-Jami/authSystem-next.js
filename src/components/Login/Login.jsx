@@ -36,7 +36,7 @@ const Login = () => {
         console.log(values, "loginUser");
 
        // const result = await loginUser(values);
-        console.log(result, "loginPage result");
+       // console.log(result, "loginPage result");
       } catch (error) {}
     },
   });
