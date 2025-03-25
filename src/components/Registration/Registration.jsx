@@ -30,7 +30,7 @@ const Registration = () => {
         console.log(values, "registerUser");
 
        // const result = await registerUser(values);
-        console.log(result, "registerPage result");
+       // console.log(result, "registerPage result");
       } catch (error) {
         console.log(error)
       }
