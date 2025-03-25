@@ -75,6 +75,7 @@ const Registration = () => {
             Password <span className="text-red-500">*</span>
           </label>
           <input
+            placeholder="test12345"
             id="password"
             name="password"
             type={"password"} // Toggle between password and text
