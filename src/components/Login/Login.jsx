@@ -35,8 +35,8 @@ const Login = () => {
       try {
         console.log(values, "loginUser");
 
-        const result = await loginUser(values);
-        console.log(result, "loginPage result");
+       // const result = await loginUser(values);
+       // console.log(result, "loginPage result");
       } catch (error) {}
     },
   });
@@ -52,6 +52,7 @@ const Login = () => {
             Email address <span className="text-red-500">*</span>
           </label>
           <input
+            placeholder="test@gmail.com"
             id="email"
             name="email"
             type="email"
@@ -79,6 +80,7 @@ const Login = () => {
             Password <span className="text-red-500">*</span>
           </label>
           <input
+            placeholder="test12345"
             id="password"
             name="password"
             type={showPassword ? "password" : "text"} // Toggle between password and text

@@ -29,8 +29,8 @@ const Registration = () => {
       try {
         console.log(values, "registerUser");
 
-        const result = await registerUser(values);
-        console.log(result, "registerPage result");
+       // const result = await registerUser(values);
+       // console.log(result, "registerPage result");
       } catch (error) {
         console.log(error)
       }
@@ -47,6 +47,7 @@ const Registration = () => {
             Email address <span className="text-red-500">*</span>
           </label>
           <input
+            placeholder="test@gmail.com"
             id="email"
             name="email"
             type="email"
@@ -74,6 +75,7 @@ const Registration = () => {
             Password <span className="text-red-500">*</span>
           </label>
           <input
+            placeholder="test12345"
             id="password"
             name="password"
             type={"password"} // Toggle between password and text
