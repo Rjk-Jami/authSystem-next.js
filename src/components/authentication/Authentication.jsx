@@ -6,7 +6,11 @@ import Registration from "../Registration/Registration";
 const Authentication = () => {
   const [loginActive, setLoginActive] = useState(true);
   return (
-    <div className="container">
+    <div className="container relative">
+
+      <div className="absolute ">
+        
+      </div>
       <div className="px-8 grid grid-cols-2 justify-center items-center gap-2">
         <button
           onClick={() => setLoginActive(!loginActive)}
