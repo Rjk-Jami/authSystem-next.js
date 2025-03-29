@@ -53,7 +53,7 @@ const Registration = () => {
             type="email"
             onChange={handleChange}
             value={values.email}
-            className={`w-full px-3 py-2  text-sm font-thin border rounded-md ${
+            className={`w-full px-3 py-2  text-sm  border rounded-md ${
               errors.email && touched.email
                 ? "border-red-500"
                 : "border-gray-300"
@@ -81,7 +81,7 @@ const Registration = () => {
             type={"password"} // Toggle between password and text
             onChange={handleChange}
             value={values.password}
-            className={`rounded-md w-full px-3 py-2 text-sm font-thin border ${
+            className={`rounded-md w-full px-3 py-2 text-sm  border ${
               errors.password && touched.password
                 ? "border-red-500"
                 : "border-gray-300"
@@ -119,12 +119,12 @@ const Registration = () => {
               checked={values.rememberMe}
               className=" h-4 w-4 "
             />
-            <span className="ml-2 text-sm font-thin  ">Remember me</span>
+            <span className="ml-2 text-sm   ">Remember me</span>
           </label>
           {/* lost section */}
           <div className="">
             <Link
-              className="text-sm font-thin text-blue-600 hover:text-blue-500"
+              className="text-sm  text-blue-600 hover:text-blue-500"
               href={"/forget-password"}
             >
               Lost your password?
