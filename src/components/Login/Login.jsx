@@ -44,7 +44,7 @@ const Login = () => {
     formik;
 
   return (
-    <div className="bg-white p-8 rounded-lg shadow-md">
+    <div className="">
       <form onSubmit={handleSubmit}>
         {/* Email Field */}
         <div className="">

@@ -2,3 +2,10 @@
 @plugin "daisyui" {
   themes: light --default
 }
+
+section span {
+ 
+  width: calc(6.25vw - 2px);
+  height: calc(6.25vw - 2px);
+  
+}

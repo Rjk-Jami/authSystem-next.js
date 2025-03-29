@@ -39,7 +39,7 @@ const Registration = () => {
   const { values, touched, errors, handleChange, handleSubmit, isSubmitting } =
     formik;
   return (
-    <div className="bg-white p-8 rounded-lg shadow-md">
+    <div className="">
       <form onSubmit={handleSubmit}>
         {/* Email Field */}
         <div className="">
@@ -106,7 +106,7 @@ const Registration = () => {
             disabled={isSubmitting}
             className=" mt-2 w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none  disabled:opacity-50"
           >
-            {isSubmitting ? "Signing in..." : "Sign in"}
+            {isSubmitting ? "Signing up..." : "Sign up"}
           </button>
         </div>
         <div className=" flex justify-between mt-4">
