@@ -1,5 +1,5 @@
 import Authentication from "@/components/authentication/Authentication";
-
+// EID MUBARAK
 export default function Home() {
   return (
     <div className="relative">
