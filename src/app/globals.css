@@ -16,7 +16,7 @@ section::before {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: linear-gradient(#ffffff, #f00, #ffffff);
+  background: linear-gradient(#000000, #f00, #000000);
   animation: animate 5s linear infinite;
 }
 
